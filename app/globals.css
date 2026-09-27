@@ -1,26 +1,348 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-blush: #fff5f7;
+  --color-rose-soft: #fdddE6;
+  --color-rose-mid: #f9a8c4;
+  --color-rose-deep: #e879a0;
+  --color-maroon: #4a3b3b;
+  --color-maroon-light: #7a5c5c;
+  --color-petal: #ffe4ec;
+
+  --font-poppins: var(--next-font-poppins), sans-serif;
+  --font-dancing-script: var(--next-font-dancing-script), cursive;
+  --font-caveat: var(--next-font-caveat), cursive;
+
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-wiggle: wiggle 2s ease-in-out infinite;
+  --animate-pop-in: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animate-fade-slide-up: fadeSlideUp 0.6s ease forwards;
+  --animate-balloon-float: balloonFloat ease-in-out infinite;
+  --animate-gift-bounce: giftBounce 2s ease-in-out infinite;
+  --animate-flame-dance: flameDance 1s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite;
+  --animate-glow-flame: glowFlame 1.5s ease-in-out infinite;
+  --animate-heart-pop: heartPop 0.5s ease both;
+  --animate-sparkle: sparkle 2s ease-in-out infinite;
+  --animate-bg-pulse: bgPulse 8s ease infinite;
+  --animate-letter-reveal: letterReveal 0.7s ease forwards;
+  --animate-float-up: floatUp linear infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(20deg);
+    opacity: 0;
+  }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0) rotate(-10deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes balloonFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(2deg);
+  }
+}
+@keyframes flameDance {
+  0%,
+  100% {
+    transform: scaleX(1) scaleY(1) rotate(-2deg);
+  }
+  25% {
+    transform: scaleX(0.85) scaleY(1.15) rotate(2deg);
+  }
+  50% {
+    transform: scaleX(1.1) scaleY(0.9) rotate(-1deg);
+  }
+  75% {
+    transform: scaleX(0.9) scaleY(1.1) rotate(3deg);
+  }
+}
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px 8px rgba(255, 180, 100, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 32px 14px rgba(255, 200, 80, 0.6);
+  }
+}
+@keyframes glowFlame {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgba(255, 160, 60, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(255, 200, 80, 1));
+  }
+}
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes giftBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-6px) rotate(-3deg);
+  }
+  40% {
+    transform: translateY(-2px) rotate(3deg);
+  }
+  60% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+  80% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+}
+@keyframes heartPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.6);
+  }
+}
+@keyframes bgPulse {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), sans-serif;
+  background-color: #fff5f7;
+  color: #4a3b3b;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f9a8c4, #e879a0);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 14px 36px;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(232, 121, 160, 0.35);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 10px 28px rgba(232, 121, 160, 0.45);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-secondary {
+  background: white;
+  color: #e879a0;
+  border: 2px solid #f9a8c4;
+  border-radius: 9999px;
+  padding: 12px 32px;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(232, 121, 160, 0.15);
+}
+
+.btn-secondary:hover {
+  background: #fff5f7;
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(232, 121, 160, 0.25);
+}
+
+.card {
+  background: white;
+  border-radius: 28px;
+  box-shadow:
+    0 8px 40px rgba(232, 121, 160, 0.12),
+    0 2px 8px rgba(232, 121, 160, 0.08);
+}
+
+/* Book page-flip animations */
+@keyframes bookExitFwd {
+  0% {
+    transform: perspective(1400px) rotateY(0deg) translateZ(0);
+    opacity: 1;
+  }
+  40% {
+    transform: perspective(1400px) rotateY(-22deg) translateZ(-30px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(1400px) rotateY(-90deg) translateZ(-60px) scaleX(0.9);
+    opacity: 0;
+  }
+}
+@keyframes bookEnterFwd {
+  0% {
+    transform: perspective(1400px) rotateY(90deg) translateZ(-60px) scaleX(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: perspective(1400px) rotateY(16deg) translateZ(-20px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: perspective(1400px) rotateY(0deg) translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes bookExitBwd {
+  0% {
+    transform: perspective(1400px) rotateY(0deg) translateZ(0);
+    opacity: 1;
+  }
+  40% {
+    transform: perspective(1400px) rotateY(22deg) translateZ(-30px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(1400px) rotateY(90deg) translateZ(-60px) scaleX(0.9);
+    opacity: 0;
+  }
+}
+@keyframes bookEnterBwd {
+  0% {
+    transform: perspective(1400px) rotateY(-90deg) translateZ(-60px) scaleX(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: perspective(1400px) rotateY(-16deg) translateZ(-20px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: perspective(1400px) rotateY(0deg) translateZ(0);
+    opacity: 1;
+  }
+}
+
+.book-exit-fwd {
+  animation: bookExitFwd 360ms cubic-bezier(0.4, 0, 0.8, 0.6) forwards;
+}
+.book-enter-fwd {
+  animation: bookEnterFwd 360ms cubic-bezier(0.2, 0.4, 0.4, 1) forwards;
+}
+.book-exit-bwd {
+  animation: bookExitBwd 360ms cubic-bezier(0.4, 0, 0.8, 0.6) forwards;
+}
+.book-enter-bwd {
+  animation: bookEnterBwd 360ms cubic-bezier(0.2, 0.4, 0.4, 1) forwards;
+}
+
+.nav-btn:hover:not(:disabled) {
+  transform: scale(1.06);
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.nav-btn:disabled {
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
 }
