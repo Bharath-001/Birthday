@@ -15,7 +15,8 @@ export interface BalloonColor {
 }
 
 export interface MemoryCardData {
-  emoji: string;
+  emoji?: string;
+  image?: string;
   caption: string;
   bg: string;
   rot: number;

@@ -27,6 +27,9 @@
   --animate-bg-pulse: bgPulse 8s ease infinite;
   --animate-letter-reveal: letterReveal 0.7s ease forwards;
   --animate-float-up: floatUp linear infinite;
+  --animate-balloon-pop: balloonPop 380ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animate-shockwave: shockwave 500ms ease-out forwards;
+  --animate-wind-gust: windGust 520ms ease-in forwards;
 }
 
 @keyframes floatUp {
@@ -173,6 +176,43 @@
   50% {
     opacity: 0.3;
     transform: scale(0.6);
+  }
+}
+@keyframes balloonPop {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.2) rotate(-4deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.15) rotate(8deg);
+    opacity: 0;
+  }
+}
+@keyframes shockwave {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+@keyframes windGust {
+  0% {
+    transform: translateX(-30vw) scaleX(0.5);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(70vw) scaleX(1.6);
+    opacity: 0;
   }
 }
 @keyframes bgPulse {

@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { MemoryCardData } from "@/types";
 
 interface MemoryCardProps extends MemoryCardData {
   delay: number;
 }
 
-export default function MemoryCard({ emoji, caption, bg, rot, delay }: MemoryCardProps) {
+export default function MemoryCard({ emoji, image, caption, bg, rot, delay }: MemoryCardProps) {
   const [hovered, setHovered] = useState(false);
   const [tapped, setTapped] = useState(false);
 
@@ -37,11 +38,12 @@ export default function MemoryCard({ emoji, caption, bg, rot, delay }: MemoryCar
           transition: "transform 0.32s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease",
         }}
       >
-        <div
-          className="flex aspect-square w-full shrink-0 items-center justify-center text-[1.75rem]"
-          style={{ background: bg }}
-        >
-          {emoji}
+        <div className="relative aspect-square w-full shrink-0 overflow-hidden" style={{ background: bg }}>
+          {image ? (
+            <Image src={image} alt={caption} fill sizes="120px" className="object-cover" />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-[1.75rem]">{emoji}</div>
+          )}
         </div>
         <p className="font-dancing-script w-full px-1 pt-1.5 pb-2.5 text-center text-[0.68rem] leading-tight text-[#7A5C5C]">
           {caption}

@@ -13,8 +13,8 @@ interface GiftBoxScreenProps {
 
 export default function GiftBoxScreen({ onReplay }: GiftBoxScreenProps) {
   const [phase, setPhase] = useState<GiftPhase>("gift");
-  const [memoryVisible, setMemoryVisible] = useState(false);
   const [letterBtnVisible, setLetterBtnVisible] = useState(false);
+  const [hasReadLetter, setHasReadLetter] = useState(false);
 
   const handleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (phase !== "gift") return;
@@ -25,8 +25,7 @@ export default function GiftBoxScreen({ onReplay }: GiftBoxScreenProps) {
     });
     setTimeout(fireConfetti, 200);
     setPhase("celebration");
-    setTimeout(() => setMemoryVisible(true), 900);
-    setTimeout(() => setLetterBtnVisible(true), 1900);
+    setTimeout(() => setLetterBtnVisible(true), 900);
   };
 
   if (phase === "gift") {
@@ -36,14 +35,19 @@ export default function GiftBoxScreen({ onReplay }: GiftBoxScreenProps) {
   if (phase === "letter") {
     return (
       <div className="animate-letter-reveal w-full">
-        <LoveLetterBook onFinish={() => setPhase("celebration")} />
+        <LoveLetterBook
+          onFinish={() => {
+            setPhase("celebration");
+            setHasReadLetter(true);
+          }}
+        />
       </div>
     );
   }
 
   return (
     <CelebrationScreen
-      memoryVisible={memoryVisible}
+      memoryVisible={hasReadLetter}
       letterBtnVisible={letterBtnVisible}
       onOpenLetter={() => setPhase("letter")}
       onReplay={onReplay}

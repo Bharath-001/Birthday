@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import BearsCakeIllustration from "@/components/illustrations/BearsCakeIllustration";
+import Image from "next/image";
 import { NO_BUTTON_MESSAGES } from "@/lib/constants";
 
 interface WelcomeScreenProps {
@@ -29,18 +29,36 @@ export default function WelcomeScreen({ onYes }: WelcomeScreenProps) {
       {/* Title */}
       <div className="text-center">
         <h1 className="font-poppins text-3xl leading-tight font-bold text-[#4A3B3B]">
-          Happy Birthday, <span className="text-[#E879A0]">Linda!</span> 🎉
+          Happy Birthday, <span className="text-[#E879A0]">Linda!</span>
         </h1>
       </div>
 
-      {/* Bears illustration */}
-      <div className="relative flex flex-col items-center">
+      {/* Cats & cake photo */}
+      <div className="relative w-full max-w-[320px]">
+        <Image
+          src="/images/welcome-cats-cake-v5.png"
+          alt="Two cats sitting beside Linda's birthday cake"
+          width={1360}
+          height={768}
+          priority
+          sizes="(max-width: 400px) 90vw, 320px"
+          className="animate-float h-auto w-full"
+        />
+
+        {/* Soft glow accent on the photo's own candle flame */}
         <div
-          className="card animate-float flex h-[220px] w-[240px] items-center justify-center rounded-[32px] p-2"
-          style={{ background: "linear-gradient(145deg, #fff9fb, #fff0f5)" }}
-        >
-          <BearsCakeIllustration />
-        </div>
+          className="animate-glow pointer-events-none absolute rounded-full"
+          style={{
+            left: "51.3%",
+            top: "48%",
+            width: "3.5%",
+            aspectRatio: "1 / 1",
+            transform: "translate(-50%, -50%)",
+            background: "radial-gradient(circle, rgba(255,190,90,0.65) 0%, transparent 72%)",
+            filter: "blur(3px)",
+          }}
+        />
+
         <span className="animate-sparkle absolute -top-3 -right-3 text-2xl">✨</span>
         <span className="animate-sparkle absolute -bottom-2 -left-4 text-xl [animation-delay:0.5s]">⭐</span>
       </div>

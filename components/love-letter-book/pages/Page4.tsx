@@ -38,21 +38,21 @@ export default function Page4({ onFinish }: Page4Props) {
 
       <div className="font-caveat text-left text-[1.22rem] leading-[1.88] text-[#3d2c1e]">
         <p className="mb-3.5">
-          And so, my dear Linda, as we celebrate this wonderful day that belongs entirely to you, I want to leave you
-          with this —
+          And so, my good friend, as we celebrate this day that belongs entirely to you, I just want to remind you  
         </p>
         <p className="mb-3.5">
-          No matter where life takes you, no matter what roads you walk and what seas you cross, know that you are so
-          dearly loved. Know that your presence in this world is a gift — one that keeps on giving every single day.
+          No matter where life takes us, you&apos;re always going to have a reliable friend right here. Your presence
+          makes life a lot more fun and meaningful.
         </p>
-        <p className="mb-[18px]">
-          Here&apos;s to you, to this beautiful year ahead, and to every magical chapter still waiting to be written.
+        <p className="mb-4.5">
+          Here&apos;s to you, to this fantastic year ahead, and to many more crazy memories together!
         </p>
+        <p className="mb-4.5 text-center text-[1.4rem] font-bold text-[#8B1A1A]">Happy Birthday, Linda! 🥳🥂</p>
         <div className="mt-1 border-t border-[rgba(139,107,74,0.2)] pt-3 text-right">
           <p className="text-[1.05rem] leading-[1.7] text-[#5c3d2a] italic">
-            With all my love and best wishes,
+            Best wishes,
             <br />
-            <strong className="font-caveat text-[1.5rem] text-[#8B1A1A]">Yours... 💕</strong>
+            <strong className="font-caveat text-[1.5rem] text-[#8B1A1A]">Yours...🤪</strong>
           </p>
         </div>
       </div>

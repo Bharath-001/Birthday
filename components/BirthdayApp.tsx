@@ -34,9 +34,9 @@ export default function BirthdayApp() {
     >
       <FloatingPetals />
 
-      <div className="relative z-[1] w-full max-w-[420px]">
+      <div className="relative z-[1] w-full max-w-[420px] sm:max-w-120 md:max-w-160 lg:max-w-190">
         <div
-          className="card rounded-[36px] px-6 py-8 backdrop-blur-2xl"
+          className="card rounded-[36px] px-6 py-8 backdrop-blur-2xl sm:px-10 sm:py-10 md:px-14 md:py-14"
           style={{
             background: "rgba(255,255,255,0.88)",
             boxShadow: "0 16px 56px rgba(232,121,160,0.14), 0 4px 16px rgba(232,121,160,0.1)",

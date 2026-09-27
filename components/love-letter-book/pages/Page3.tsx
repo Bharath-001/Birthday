@@ -16,30 +16,26 @@ export default function Page3() {
       <div className="flex-1 pr-10">
         <div className="mb-4 text-center">
           <p className="font-caveat mb-1 text-[0.8rem] tracking-[0.18em] text-[#8B6B4A] uppercase opacity-65">
-            — with deepest gratitude —
+            — with so much happiness —
           </p>
           <OrnamentalDivider />
         </div>
 
         <div className="font-caveat text-[1.2rem] leading-[1.88] text-[#3d2c1e]">
           <p className="mb-3.5">
-            On this day, as you celebrate another beautiful year, I want you to know that you deserve every good
-            thing the universe has in store for you.
+            On this day, as you celebrate another great year, I want you to know that you deserve every good thing
+            coming your way.
           </p>
           <p className="mb-3.5">
-            You have given so much of yourself — your love, your time, your gentle and generous heart. Now it is
-            your turn to receive.
+            You bring so much positivity and good vibes to everyone around you. Now it&apos;s your turn to sit back
+            and enjoy the best treatment!
           </p>
           <p className="mb-3.5">
-            May this birthday bring you endless laughter, unexpected surprises, and quiet moments of perfect peace.
-            May every dream you have carried softly in your heart begin to{" "}
-            <em className="text-[#7A4A2A]">bloom</em> this year like the most beautiful of gardens.
+            May this birthday bring you endless laughter, great surprises, and all the success you&apos;ve been
+            working for. May every dream you have start{" "}
+            <em className="text-[#7A4A2A]">blooming</em> this year.
           </p>
-          <p className="italic opacity-75">
-            You deserve mornings that feel like promises
-            <br />
-            and evenings that feel like poetry. ✨
-          </p>
+          <p className="italic opacity-75">You deserve days full of good food, good music, and zero stress! ✨</p>
         </div>
       </div>
     </div>

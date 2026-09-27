@@ -79,37 +79,44 @@ export default function LoveLetterBook({ onFinish }: LoveLetterBookProps) {
         <div className="w-full" style={{ perspective: "1400px" }}>
           <div
             className={`relative w-full rounded ${animClass}`}
-            style={{
-              background:
-                "radial-gradient(ellipse at 25% 20%, rgba(255,255,255,0.22) 0%, transparent 55%), radial-gradient(ellipse at 80% 85%, rgba(255,255,255,0.1) 0%, transparent 40%), linear-gradient(160deg, #faf4e4 0%, #f4ecd8 28%, #ede0c4 58%, #e6d4b4 80%, #dfc9a4 100%)",
-              boxShadow:
-                "inset 0 0 50px rgba(160, 110, 50, 0.18), inset 0 0 120px rgba(130, 85, 30, 0.07), 2px 4px 12px rgba(0,0,0,0.14), 6px 10px 32px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.08)",
-              padding: "32px 28px 56px",
-              filter: "url(#edge-tear)",
-              transformOrigin: "center center",
-              willChange: "transform, opacity",
-            }}
+            style={{ transformOrigin: "center center", willChange: "transform, opacity" }}
           >
-            {/* Paper grain overlay */}
+            {/* Paper background — the deckled/torn-edge warp is confined to this layer only,
+                so it never distorts the readable text sitting in the layer above it. */}
             <div
-              className="pointer-events-none absolute inset-0 z-0 rounded"
+              className="pointer-events-none absolute inset-0 rounded"
               style={{
                 background:
-                  "repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(139,107,74,0.03) 28px, rgba(139,107,74,0.03) 29px)",
+                  "radial-gradient(ellipse at 25% 20%, rgba(255,255,255,0.22) 0%, transparent 55%), radial-gradient(ellipse at 80% 85%, rgba(255,255,255,0.1) 0%, transparent 40%), linear-gradient(160deg, #faf4e4 0%, #f4ecd8 28%, #ede0c4 58%, #e6d4b4 80%, #dfc9a4 100%)",
+                boxShadow:
+                  "inset 0 0 50px rgba(160, 110, 50, 0.18), inset 0 0 120px rgba(130, 85, 30, 0.07), 2px 4px 12px rgba(0,0,0,0.14), 6px 10px 32px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.08)",
+                filter: "url(#edge-tear)",
               }}
             />
-            {/* Aged vignette edges */}
-            <div
-              className="pointer-events-none absolute inset-0 z-0 rounded"
-              style={{ boxShadow: "inset 0 0 28px rgba(100,60,20,0.2), inset 0 0 8px rgba(80,40,10,0.15)" }}
-            />
-            {/* Fold line */}
-            <div
-              className="pointer-events-none absolute top-1/2 right-[10%] left-[10%] z-0 h-px"
-              style={{ background: "linear-gradient(to right, transparent, rgba(139,107,74,0.12), transparent)" }}
-            />
 
-            <div className="relative z-[1]">{pages[displayPage]}</div>
+            {/* Content layer — crisp, unfiltered text */}
+            <div className="relative" style={{ padding: "32px 28px 56px" }}>
+              {/* Paper grain overlay */}
+              <div
+                className="pointer-events-none absolute inset-0 z-0 rounded"
+                style={{
+                  background:
+                    "repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(139,107,74,0.03) 28px, rgba(139,107,74,0.03) 29px)",
+                }}
+              />
+              {/* Aged vignette edges */}
+              <div
+                className="pointer-events-none absolute inset-0 z-0 rounded"
+                style={{ boxShadow: "inset 0 0 28px rgba(100,60,20,0.2), inset 0 0 8px rgba(80,40,10,0.15)" }}
+              />
+              {/* Fold line */}
+              <div
+                className="pointer-events-none absolute top-1/2 right-[10%] left-[10%] z-0 h-px"
+                style={{ background: "linear-gradient(to right, transparent, rgba(139,107,74,0.12), transparent)" }}
+              />
+
+              <div className="relative z-[1]">{pages[displayPage]}</div>
+            </div>
           </div>
         </div>
 
